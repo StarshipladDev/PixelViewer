@@ -58,6 +58,6 @@ The folder'Anime.zip' contains some sample .WAV files and compatible animation P
 To open an animation, press 'animation' in the toolbar, and select an appropriate 1600 * 800 px
 image file.
 
-To play audio over the animation, press the 'Sound' button ![Pic Of Audio Button](Audio.png "Audio") in the tool bar, and select a compatible .wav file.
+To play audio over the animation, press the 'Sound' button ![Pic Of Audio Button](Audio.PNG "Audio") in the tool bar, and select a compatible .wav file.
 
 This program will work with animations you create yourself, and some base files are included
