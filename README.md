@@ -2,6 +2,8 @@
 This is a simple executable app to run & display 'framed' pixel animations  to easily help me as I learn to improve my pixel art ability.
 I am primarily pulling pixel tutorials from ![Miniboss](https://blog.studiominiboss.com/pixelart"Miniboss")
 
+## Download exe & content here : ![Link](https://github.com/StarshipladDev/PixelViewer/raw/master/Anime.zip)
+
 ## Creating Your Own Animations
 PixelPlayer will open & run any animation image(.PNG,.JPG ect. ect.) that has the following format:
 Image 'Slides', drawn left-to right, going down. Only 4 'slides' per row.
@@ -68,7 +70,7 @@ I plan on this project improving my skills in the following:
 All files other than Anime.zip are for development purposes to look through my code.
 To run the program, download Anime.zip, uncompress it and run PixelPlayer.exe 
 
-The folder'Anime.zip' ( That can be downloaded : [!here](https://github.com/StarshipladDev/PixelViewer/raw/master/Anime.zip)) ,contains some sample .WAV files and compatible animation PNGs
+The folder'Anime.zip' ( That can be downloaded : ![here](https://github.com/StarshipladDev/PixelViewer/raw/master/Anime.zip)) ,contains some sample .WAV files and compatible animation PNGs
 as well as the .exe file to run the program.
 
 To open an animation, press 'animation' in the toolbar, and select an appropriate image that follows guideline mentioned above.
