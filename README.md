@@ -73,6 +73,6 @@ as well as the .exe file to run the program.
 
 To open an animation, press 'animation' in the toolbar, and select an appropriate image that follows guideline mentioned above.
 
-To play audio over the animation, press the 'Sound' button ![Pic Of Audio Button](Audio.png "Audio") in the tool bar, and select a compatible .wav file.
+To play audio over the animation, press the 'Sound' button ![Pic Of Audio Button](Audio.PNG "Audio") in the tool bar, and select a compatible .wav file.
 
 This program will work with animations you create yourself, and some base files are included
