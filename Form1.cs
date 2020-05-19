@@ -17,12 +17,15 @@ namespace PixelPlayer
     /// </summary>
     public partial class Form1 : Form
     {
+        bool drawing = false;
         int anim = 0;
-        const int maxFrames = 8;
+
         Timer timer = new System.Windows.Forms.Timer();
         System.Media.SoundPlayer soundPlayer;
         Bitmap AnimationImageBase;
         Bitmap AnimationShow;
+
+        int layer = 0;
         public Form1()
         {
             InitializeComponent();
@@ -74,25 +77,69 @@ namespace PixelPlayer
             }
 
         }
+        public String AddLine(string core, string newe)
+        {
+            return core+"\n"+newe;
+        }
+        /// <summary>
+        /// OpenHelpDialog runs a simple help Dialog class with text explaining the basics of the program
+        /// </summary>
+        /// <param name="Sender">The object that called this method</param>
+        /// <param name="e">The lst of arguments the instance of this method has</param>
+        public void OpenHelpDialog(object sender, EventArgs e)
+        {
+            String helpString = String.Empty;
+            helpString = AddLine(helpString,"Welcome to PixelPlayer!");
+            helpString = AddLine(helpString, "To play an animation, select any valid image file by clicking 'Animation'");
+            helpString = AddLine(helpString, "To play a sound over it, select any .WAV file by clicking 'Sound'");
+            helpString = AddLine(helpString, "* Total Animation 'slides' must be a multiple of 4");
+            helpString = AddLine(helpString, "* All animation 'slides' must have the same width&height");
+            helpString = AddLine(helpString, "* Animations must be ordererd left to right, down, in groups of 4 across");
+            helpString = AddLine(helpString, "* After opening 'config', 'accept' must be pressed to continue");
+            helpString = AddLine(helpString, "* All Animation slides must have a box of ((width or height)/20) thickness");
+            helpString = AddLine(helpString, "surrounding each 'slide'");
+            helpString = AddLine(helpString, "E.G : A animation 'slide' 20x20 px must have a 1px square around it");
+            MessageBox.Show(helpString);
+
+        }
+        /// <summary>
+        /// This pauses the application and opens a <see cref="ConfigForm"/>
+        /// After the ConfigForm is closed, values such as timer speed and animations are changed and the aniamtion continues
+        /// </summary>
+        /// <param name="Sender">The object that called this method</param>
+        /// <param name="e">The lst of arguments the instance of this method has</param>
+        public void OpenConfigForm(object Sender, EventArgs e)
+        {
+            this.timer.Stop();
+            ConfigForm cf = new ConfigForm(timer);
+            cf.Show();
+        }
         /// <summary>
         /// OnPaint is an override method to perform painting based on the animation 'step'
         /// </summary>
         /// <param name="e">The event arguments for this particular paint instance</param>
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
-
-            if(AnimationImageBase!= null)
+            if( !drawing)
             {
-                Graphics g = this.CreateGraphics();
-                int layer = 0;
-                if (anim >=maxFrames/2)
+                int maxFrames = Globals.maxFrames;
+                int cellSizePixels = Globals.cellSizePixels;
+                drawing = true;
+                base.OnPaint(e);
+
+                if (AnimationImageBase != null)
                 {
-                    layer = 1;
+                    Graphics g = e.Graphics;
+                    if ((anim) % 4==0 && anim>0)
+                    {
+                        layer++;
+                    }
+                    Rectangle section = new Rectangle(new Point((cellSizePixels) * (anim % 4)+ ((anim%4+1)*(cellSizePixels / 20)) , (cellSizePixels * layer) +( (cellSizePixels / 20)*(layer+1))), new Size(cellSizePixels, cellSizePixels));
+                    g.DrawImage(CropImage(AnimationImageBase, section), 0, 0, 400, 400);
                 }
-                Rectangle section = new Rectangle(new Point(400*(anim%4),400*layer), new Size(400, 400));
-                g.DrawImage(CropImage(AnimationImageBase,section), 0,0,400,400);
+                drawing = false; ;
             }
+           
         }
         /// <summary>
         /// OnTick is the handler that calls changes to the form every 'tick' that occurs after a certain ammount of time.
@@ -101,18 +148,23 @@ namespace PixelPlayer
         /// <param name="e">The argumebts of this particular 'tick' event</param>
         private void OnTick(object sender, EventArgs e)
         {
+
+            int maxFrames = Globals.maxFrames;
             this.anim++;
             if (anim == maxFrames)
             {
-                if (this.soundPlayer != null)
+                if (this.soundPlayer != null && AnimationImageBase!=null)
                 {
 
                     this.soundPlayer.Stop();
+                    layer = 0;
                     anim = 0;
                     this.soundPlayer.Play();
                 }
                 else
                 {
+
+                    layer = 0;
                     anim = 0;
                 }
             }
