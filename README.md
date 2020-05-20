@@ -6,9 +6,13 @@ I am primarily pulling pixel tutorials from ![Miniboss](https://blog.studiominib
 
 ## Creating Your Own Animations
 PixelPlayer will open & run any animation image(.PNG,.JPG ect. ect.) that has the following format:
+
 Image 'Slides', drawn left-to right, going down. Only 4 'slides' per row.
+
 Image'slides' being the same width&height.
+
 Image 'slides' beign squares
+
 Images 'slides' being surrounded by overlapping gaps, that are exactly (slide width /20)px thick.
 
 A good way to create a pixel image is to create a new 84px x 43px image.
