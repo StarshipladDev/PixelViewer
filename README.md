@@ -43,9 +43,22 @@ Voila, you have created an 8 frame animation!
 
 * Variable animation frame speeds  *
 
+*Output Image as a .GIF file *
+
 ## Latest  Build
 
 1.0 - 19/05/20
+
+## Latest Update
+1.1 (UI update) - 12/11/20
+	> Overall Project Add a Among Us Animation PNG to 'Anime'
+	> Form1.Designer.cs Add handling of iamges to toolbar menu items to make nicer UI
+	> Form1.Designer.cs Add background color to match toolbar iamges
+	>Overall Project Add toolbar iamge resources
+
+
+## View Of Latest Update:
+![Latest](Latest.PNG)
 
 ## Next Update
 
@@ -65,7 +78,7 @@ I plan on this project improving my skills in the following:
 
 > A post-COVD refresher on .md documentation.
 
-> Windows forms graphics.
+> Windows Forms graphics.
 
 ## Installing and Compiling:
 
@@ -74,7 +87,7 @@ I plan on this project improving my skills in the following:
 All files other than Anime.zip are for development purposes to look through my code.
 To run the program, download Anime.zip, uncompress it and run PixelPlayer.exe 
 
-The folder'Anime.zip' ( That can be downloaded : ![here](https://github.com/StarshipladDev/PixelViewer/raw/master/Anime.zip)) ,contains some sample .WAV files and compatible animation PNGs
+The folder 'Anime.zip' ( That can be downloaded : ![here](https://github.com/StarshipladDev/PixelViewer/raw/master/Anime.zip)) ,contains some sample .WAV files and compatible animation PNGs
 as well as the .exe file to run the program.
 
 To open an animation, press 'animation' in the toolbar, and select an appropriate image that follows guideline mentioned above.
